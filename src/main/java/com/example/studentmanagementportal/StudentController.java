@@ -1,5 +1,7 @@
 package com.example.studentmanagementportal;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@RequestMapping("/student")
 public class StudentController{
+
+    public static Logger logger = LoggerFactory.getLogger(StudentController.class);
 
     @Autowired
     StudentService studentService;
@@ -25,6 +30,11 @@ public class StudentController{
 
     @PostMapping("/add")
     public ResponseEntity addStudent(@RequestBody Student student){
+        logger.warn(String.valueOf(student));
+        logger.info("This is a INFO log");
+        logger.warn("This is a WARN log");
+        logger.error("This is a ERROR log");
+        logger.trace("This is a TRACE log");
         String s = studentService.addStudent(student);
         return new ResponseEntity(s, HttpStatus.CREATED);
     }

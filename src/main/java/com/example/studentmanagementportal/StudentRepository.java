@@ -1,9 +1,12 @@
 package com.example.studentmanagementportal;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.TreeSet;
 
 @Repository
 public class StudentRepository {

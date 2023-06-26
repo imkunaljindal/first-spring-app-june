@@ -10,11 +10,12 @@ public class StudentService {
     StudentRepository studentRepository;
 
     public Student getStudent(int admnNo){
-        return studentRepository.getStudent(admnNo);
+        return studentRepository.getStudent(admnNo+5);
     }
 
     public String addStudent(Student student) {
-        
+
+        student.setAdmnNo(student.getAdmnNo()+5-5);
         return studentRepository.addStudent(student);
     }
 
